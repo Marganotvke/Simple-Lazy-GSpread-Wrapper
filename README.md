@@ -26,9 +26,9 @@ Alternatively, you can do:
 
     import slgsw
 
-However, by doing so you will need to reference the module to use any function by typing "slgsw." in front of every slgsw function, for example:
+However, by doing so you will need to reference the module to use the initialization function by typing "slgsw." in front of every slgsw function, for example:
     
-    slgsw.get_cell_value("A1")
+    slgsw.slgsw("A1")
 
 which as you can see, can be a hassle for some.
 
