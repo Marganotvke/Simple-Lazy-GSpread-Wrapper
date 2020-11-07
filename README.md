@@ -2,7 +2,7 @@
 A simple wrapper for gspread for people who have limited programming experience, or just simply too lazy to read the gspread docs.
 <br>Provides some simple functions for ordinary daily use cases. 
 <br>
-#### Installation
+### Installation
 First, install the dependencies of the module (which are gspread and oauth2client):
 
     pip install gspread oauth2client
@@ -32,7 +32,7 @@ However, by doing so you will need to reference the module to use any function b
 
 which as you can see, can be a hassle for some.
 
-#### Functions
+### Functions
 Here is a list of functions that this module provide, in the format of function(argument(s)):
 * slgsw(scope,credentials)
     <br> This is the initialization function of this module for Authentication.
@@ -158,7 +158,7 @@ Here is a list of functions that this module provide, in the format of function(
         print(x)
         #will print [<Cell R1C1 'Hello!'>, <Cell R2C1 'Hello!'>]
     
-#### Usage and examples
+### Usage and examples
 The following is an example that I put up. You can also find the example file in the repository:
     
     # You can modify this code to suit your needs
@@ -194,10 +194,10 @@ The following is an example that I put up. You can also find the example file in
 If you requires more complex functions, please refer to the gspread api docs and learn the apis yourself. Thank you.
 <br> https://gspread.readthedocs.io/en/latest/index.html
 
-####Todo
+###Todo
 * Add fontFamily support for update_format
 
-####Other Stuff
+###Other Stuff
 This is my first wrapper and also my first public git repository. Kinda excited about this.
 <br> Was kinda frustrated to use the gspread api, therefore wrote this wrapper to make it just a tiny bit user-friendly.
 <br> Writing the read me takes more time than to actually write and debug the actual code lol.
