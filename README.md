@@ -42,7 +42,7 @@ Here is a list of functions that this module provide, in the format of function(
 
     A full list of scopes is available in the gspread api docs, however in most cases, https://www.googleapis.com/auth/spreadsheets (allows for read/write of spreadsheets) and https://www.googleapis.com/auth/drive (allows for access of google drive) is enough.
     <br><br>credentials: you will need to fill in the name (or the path) of the credentials file you downloaded from google's api control panel. Full instructions can be found here:https://gspread.readthedocs.io/en/latest/oauth2.html#enable-api-access-for-a-project
-    <br>The format is in a string (double quotes, ""), and the file's format MUST be in json, eg:
+    <br>The format is in a string (double quotes or single quotes, ""/''), and the file's format MUST be in json, eg:
         
         'credentials.json'
     
