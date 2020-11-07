@@ -137,7 +137,7 @@ Here is a list of functions that this module provide, in the format of function(
     <br>cell_range:Takes the cell range of the spreadsheet. Takes in cell referencing (A1 notation). eg:
         
         "A1:B2"
-    It can also take multiple values, just use a list to hold them together. eg"
+    It can also take multiple values, just use a list to hold them together. eg:
         
         cell_range = ["A1:B2","C3"]
     Do keep in mind that it will return in a multi-list form, in another words, the 'lists within a list' form.
