@@ -196,6 +196,7 @@ If you requires more complex functions, please refer to the gspread api docs and
 
 ### Todo
 * Add fontFamily support for update_format
+* Add numberFormat support for update_format
 
 ### Other Stuff
 This is my first wrapper and also my first public git repository. Kinda excited about this.
