@@ -13,7 +13,7 @@ Then, you can install this module by typing:
 
 Additionally, if you want to just use the module without installing it, or having trouble using the above method, you can just download it and put it in the same folder as your project.
 
-#### Importing
+### Importing
 Importing the module is easy, all you need do is just type in the first line:
     
     from slgsw import *
