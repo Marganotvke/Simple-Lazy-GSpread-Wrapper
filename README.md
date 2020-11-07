@@ -202,4 +202,4 @@ This is my first wrapper and also my first public git repository. Kinda excited 
 <br> Was kinda frustrated to use the gspread api, therefore wrote this wrapper to make it just a tiny bit user-friendly.
 <br> Writing the read me takes more time than to actually write and debug the actual code lol.
 <br> Feel free to pull request or whatever! I will check them if I have the time.
->gspread is copyrighted by Anton Burnashev (2020), Revision db2a424e.
+>gspread is copyrighted by Anton Burnashev.
