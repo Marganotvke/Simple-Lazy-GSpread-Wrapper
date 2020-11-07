@@ -26,7 +26,7 @@ Alternatively, you can do:
 
     import slgsw
 
-However, by doing so you will need to reference the module to use the initialization function by typing "slgsw." in front of every slgsw function, for example:
+However, by doing so you will need to reference the module to use the initialization function by typing "slgsw." in front of the slgsw function, eg:
     
     slgsw.slgsw(scope,creds)
 
