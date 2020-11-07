@@ -28,7 +28,7 @@ Alternatively, you can do:
 
 However, by doing so you will need to reference the module to use the initialization function by typing "slgsw." in front of every slgsw function, for example:
     
-    slgsw.slgsw("A1")
+    slgsw.slgsw(scope,creds)
 
 which as you can see, can be a hassle for some.
 
