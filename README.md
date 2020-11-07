@@ -194,10 +194,10 @@ The following is an example that I put up. You can also find the example file in
 If you requires more complex functions, please refer to the gspread api docs and learn the apis yourself. Thank you.
 <br> https://gspread.readthedocs.io/en/latest/index.html
 
-###Todo
+### Todo
 * Add fontFamily support for update_format
 
-###Other Stuff
+### Other Stuff
 This is my first wrapper and also my first public git repository. Kinda excited about this.
 <br> Was kinda frustrated to use the gspread api, therefore wrote this wrapper to make it just a tiny bit user-friendly.
 <br> Writing the read me takes more time than to actually write and debug the actual code lol.
