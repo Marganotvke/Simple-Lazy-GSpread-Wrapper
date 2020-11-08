@@ -20,6 +20,7 @@ class slgsw:
     def update_range(self,rng,item): #in cell referencing (A1 notation) format. item variable takes 2d list ([[]]). Full format see read me
         if type(item) is not list:
             print("Invalid argument format! Please check if the value you want to input is in a list! If you want to udpate a single cell's value, please use update_cell instead!")
+            return 0
         else:
             self.ws.update(rng,item)
             return item #return the written item list
