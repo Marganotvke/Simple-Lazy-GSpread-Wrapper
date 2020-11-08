@@ -15,21 +15,17 @@ If you have trouble installing this module, or just simply do not want to instal
 #### Importing
 Importing the module is easy, all you need do is just type in the first line:
     
-    import slgsw.slgsw
+    from slgsw import slgsw
 
 or:
 
-    from slgsw import slgsw
+    import slgsw.slgsw
 
 Alternatively, you can do:
 
     import slgsw
 
-However, by doing so you will need to reference the module to use the initial function by typing "slgsw." in front of the slgsw function, like so:
-    
-    slgsw.slgsw(scope,creds)
-
-which as you can see, can be a hassle for some.
+If you know what you are doing. Not adviced.
 
 ### Functions
 Here is a list of functions that this module provide, in the format of function(argument(s)):
