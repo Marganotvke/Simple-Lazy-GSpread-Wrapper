@@ -7,7 +7,7 @@ First, install the dependencies of the module (which are gspread and oauth2clien
 
     pip install gspread oauth2client
 
-Then, ou can just clone it and put it in the same directory as your project.
+Then, you can just clone it and put it in the same directory as your project.
 
 #### Importing
 Importing the module is easy, all you need do is just type in the first line:

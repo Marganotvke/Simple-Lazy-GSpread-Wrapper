@@ -1,0 +1,9 @@
+README.md
+setup.py
+Simple_Lazy_GSpread_Wrapper.egg-info/PKG-INFO
+Simple_Lazy_GSpread_Wrapper.egg-info/SOURCES.txt
+Simple_Lazy_GSpread_Wrapper.egg-info/dependency_links.txt
+Simple_Lazy_GSpread_Wrapper.egg-info/top_level.txt
+slgsw/__init__.py
+slgsw/sample.py
+slgsw/slgsw.py
