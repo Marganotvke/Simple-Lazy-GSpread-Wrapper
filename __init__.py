@@ -1,1 +1,0 @@
-from slgsw.slgsw import *
