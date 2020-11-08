@@ -11,7 +11,7 @@ Then, you can install this module by typing:
 
     pip install git+https://github.com/Marganotvke/Simple-Lazy-GSpread-Wrapper#egg=Simple-Lazy-GSpread-Wrapper 
 
-Additionally, if you want to just use the module without installing it, you can just download it and put it in the same folder as your project.
+Additionally, if you encounter any trouble using the above method, or just want to use the module without installing it, you can just clone it and put it in the same folder as your project.
 
 #### Importing
 Importing the module is easy, all you need do is just type in the first line:
@@ -26,15 +26,15 @@ Alternatively, you can do:
 
     import slgsw
 
-However, by doing so you will need to reference the module to use any function by typing "slgsw." in front of every slgsw function, for example:
+However, by doing so you will need to reference the module to use the initial function by typing "slgsw." in front of the slgsw function, like so:
     
-    slgsw.get_cell_value("A1")
+    slgsw.slgsw(scope,creds)
 
 which as you can see, can be a hassle for some.
 
 ### Functions
 Here is a list of functions that this module provide, in the format of function(argument(s)):
-* slgsw(scope,credentials)
+* slgsw(scope,cred)
     <br> This is the initialization function of this module for Authentication.
     <br> Scope: you will need to fill in the list of 'powers' the service accounts have access to, in the form of a list. eg:
         
@@ -52,22 +52,22 @@ Here is a list of functions that this module provide, in the format of function(
         
         sheet = slgsw(scope,creds)
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-* sheet.open_sheet(name_of_the_spreadsheet,name_of_a_single_worksheet)
-    <br>To open and start working on a single worksheet or a spreadsheet (if it only contains one worksheet). The starting 'sheet' is the variable we mentioned in the initial function 'slgsw()' that saves all authenticating results.
-    <br><br>name_of_the_spreadsheet: The name of the spreadsheet you want to work with. eg:
+* sheet.open_sheet(sp,ws)
+    <br>To open and start working on a single worksheet or a spreadsheet. The starting 'sheet' is the variable we mentioned in the initial function 'slgsw()' that saves all authenticating results.
+    <br><br>sp: The name of the spreadsheet you want to work with. eg:
     
        "Example Spreadsheet"
                                                                                                                                                                                                                                                                                                                                                                                                          
     Space is allowed, as there are spreadsheets with space in between characters.
-    <br><br>name_of_a_single_worksheet: The name of the worksheet you want to work on, in another words, the name of the sheet within the big sheet you want to work on .
+    <br><br>ws: The name of the worksheet you want to work on, in another words, the name of the sheet within the big sheet you want to work on .
     
-*   sheet.update_cell(cell_location,value)
+*   sheet.update_cell(cell,item)
     <br>To update a cell's value or formula.
-    <br><br>cell_location: The cell's locaiton you are referencing to. Take cell referencing (A1 notation). eg:
+    <br><br>cell: The cell's locaiton you are referencing to. Take cell referencing (A1 notation). eg:
         
         "A1"
         
-    <br>value: The stuff you want to put in the cell. Can be words (string) or numbers (numeric). eg:
+    <br>item: The stuff you want to put in the cell. Can be words (string) or numbers (numeric). eg:
         
         13
         "Hello!"
@@ -78,13 +78,13 @@ Here is a list of functions that this module provide, in the format of function(
         # will print Hello!
     Do keep in mind that this function only supports one cell at a time. If you want to update multiuple cells at once, you can use:
 
-*   sheet.update_range(cell_range,value)
+*   sheet.update_range(rng,item)
     <br> Will update a range of cell at once.
-    <br><br>cell_range: The range of cells, eg:
+    <br><br>rng: The range of cells, eg:
         
         "A1:B2"
         
-    <br>value: The stuff you want to put in this range of cells.
+    <br>item: The stuff you want to put in this range of cells.
     <br> Please do keep in mind that this only takes in a 'lists within a list'. eg:
     
         data = [[1],[2]]
@@ -102,15 +102,18 @@ Here is a list of functions that this module provide, in the format of function(
             
     So on and so forth.
    
-*   sheet.update_format(cell_range,text_format,font_size)
-    <br> To change the format of a (range of) cell. This only supports text formatting and font size, if you want some other advance formatting, please refer to the gspread api docs instead. (https://gspread.readthedocs.io/en/latest/user-guide.html#formatting , https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/cells#cellformat)
-    <br><br>range: The range of cells you want to change the format of. Can be a single cell ("A1") or a range ("A1:B2").
-    <br><br>text_format: The format of the texts. Currently supports:
+*   sheet.update_format(cell,txt,size)
+    <br> To change the format of a (range of) cell. This currently only supports text formatting and font size, if you want some other advance formatting, please refer to the gspread api docs instead. (https://gspread.readthedocs.io/en/latest/user-guide.html#formatting , https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/cells#cellformat)
+    <br><br>rng: The range of cells you want to change the format of. Can be a single cell ("A1") or a range ("A1:B2").
+    <br><br>txt: The format of the texts. Currently supports:
         
         bold,italic,strikethrough,underline
-    <br>font_size: The size of texts. Takes a number only, eg: 12
+    <br>size: The size of texts. Takes a number only, eg: 12
+    <br><br>If you want to just use one of the parameters, you can just use either 'txt=something' or 'size=something'. eg:
+        
+        sheet.update_format('A1',size=15)
 
-*   sheet.get_cell_value(cell_location)
+*   sheet.get_cell_value(cell)
     <br> To retrieve a cell's value. Takes cell referencing (A1 notaiton), eg:
         
         x = sheet.get_cell_value("A1")
@@ -124,7 +127,7 @@ Here is a list of functions that this module provide, in the format of function(
         #will print 20/04/2020 16:20:39 instead of "=now()"
     If you want to retrieve the formula, use the following function:
     
-*   sheet.get_cell_formula(cell_locaiton)  
+*   sheet.get_cell_formula(cell)  
     <br> To retrieve a cell's formula instead of its value. Takes cell referencing (A1 notaiton), eg:
         
         # theres a formula =now() in A1
@@ -132,9 +135,9 @@ Here is a list of functions that this module provide, in the format of function(
         print(x)
         #will print =now() insted of 20/04/2020 16:20:39
         
-*   sheet.get_range(cell_range)
+*   sheet.get_range(rng)
     <br>It will return a list of the cells you specified.
-    <br>cell_range:Takes the cell range of the spreadsheet. Takes in cell referencing (A1 notation). eg:
+    <br>rng:Takes the cell range of the spreadsheet. Takes in cell referencing (A1 notation). eg:
         
         "A1:B2"
     It can also take multiple values, just use a list to hold them together. eg"

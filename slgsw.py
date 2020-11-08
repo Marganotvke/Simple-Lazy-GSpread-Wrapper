@@ -8,12 +8,10 @@ class slgsw:
         creds = ServiceAccountCredentials.from_json_keyfile_name(str(self.creds), self.scope)
         self.client = gspread.authorize(creds) #authorize it
 
-    def open_sheet(self,ws,ws_name):
-        if ws_name: #if there is a specific worksheet declared
-            self.sheet = self.client.open(str(ws))
-            self.ws = self.sheet.worksheet(ws_name) #open the specific work sheet
-        else: #if no specific worksheet declared
-            print("Insufficient arguments. Make sure the worksheet you are trying to work with is al filled in!")
+    def open_sheet(self,sp,ws_name):
+        self.sheet = self.client.open(str(sp))
+        self.ws = self.sheet.worksheet(ws_name) #open the specific work sheet
+
 
     def update_cell(self,cell,item): #in cell referencing (A1 notation) format
         self.ws.update_acell(str(cell),item)
@@ -22,22 +20,20 @@ class slgsw:
     def update_range(self,rng,item): #in cell referencing (A1 notation) format. item variable takes 2d list ([[]]). Full format see read me
         if type(item) is not list:
             print("Invalid argument format! Please check if the value you want to input is in a list! If you want to udpate a single cell's value, please use update_cell instead!")
-        self.ws.update(rng,item)
-        return item #return the written item list
+        else:
+            self.ws.update(rng,item)
+            return item #return the written item list
 
-    def update_format(self,rng,txt,size): #simply formatting a (range of) cell for its font size and text format. rng as cell (range) in cell referncing (A1 notation), txt as format, size as font size
-        size = eval(size)
-        if txt is not None and size is None:
-            self.ws.format(rng, {'textFormat':{txt: True}})
-            return f"Set {txt} at {rng}" #return format
-        elif txt is None and size is not None:
-            self.ws.format(rng, {'textFormat':{"fontSize": size}})
+    def update_format(self,rng, txt=None, size=None): #simply formatting a (range of) cell for its font size and text format. rng as cell (range) in cell referncing (A1 notation), txt as format, size as font size
+        if not size:
+            self.ws.format(rng, {'textFormat': {txt[0]: True}})
+            return f"Set {txt[0]} at {rng}"  # return format
+        elif not txt:
+            self.ws.format(rng, {'textFormat':{"fontSize": int(size)}})
             return f"Set Font size {size} at {rng}" #return format
-        elif txt is not None and size is not None:
+        else:
             self.ws.format(rng, {'textFormat':{"fontSize": size, txt: True}})
             return f"Set {txt} and font size {size} at {rng}" #return format
-        else:
-            print("Insufficient arguments.")
 
     def get_cell_value(self,cell): #retrieve a specific cell's value
         item = self.ws.acell(str(cell)).value
