@@ -50,15 +50,15 @@ Here is a list of functions that this module provide, in the format of function(
     Do keep in mind that you will need to set a variable to save what this function returns, to later for the other functions to reference to. eg:
         
         sheet = slgsw(scope,creds)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
 * sheet.open_sheet(sp,ws)
     <br>To open and start working on a single worksheet or a spreadsheet. The starting 'sheet' is the variable we mentioned in the initial function 'slgsw()' that saves all authenticating results.
     <br><br>sp: The name of the spreadsheet you want to work with. eg:
     
        "Example Spreadsheet"
-                                                                                                                                                                                                                                                                                                                                                                                                         
     Space is allowed, as there are spreadsheets with space in between characters.
     <br><br>ws: The name of the worksheet you want to work on, in another words, the name of the sheet within the big sheet you want to work on .
+    <br><br>Currently it needs both the sheet and worksheet name to work, even if there's only one worksheet.
     
 *   sheet.update_cell(cell,item)
     <br>To update a cell's value or formula.
@@ -198,6 +198,8 @@ If you requires more complex functions, please refer to the gspread api docs and
 
 ### Todo
 * Add fontFamily support for update_format
+* Add numberingFormat support for update_format
+* Make default of open_sheet to open first worksheet
 
 ### Other Stuff
 This is my first wrapper and also my first public git repository. Kinda excited about this.
