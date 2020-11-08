@@ -7,11 +7,7 @@ First, install the dependencies of the module (which are gspread and oauth2clien
 
     pip install gspread oauth2client
 
-Then, you can install this module by typing:
-
-    pip install git+https://github.com/Marganotvke/Simple-Lazy-GSpread-Wrapper#egg=Simple-Lazy-GSpread-Wrapper 
-
-Additionally, if you encounter any trouble using the above method, or just wanting to use the module without installing it, you can just clone it and put it in the same directory as your project.
+Then, ou can just clone it and put it in the same directory as your project.
 
 #### Importing
 Importing the module is easy, all you need do is just type in the first line:
