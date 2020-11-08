@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
-Name: Simple-Lazy-GSpread-Wrapper
-Version: 0.0.1
+Name: slgsw
+Version: 0.1
 Summary: A simple wrapper for gspread for people who have limited programming experience, or just simply too lazy to read the gspread docs.
 Home-page: https://github.com/Marganotvke/Simple-Lazy-GSpread-Wrapper
 Author: Marganotvke

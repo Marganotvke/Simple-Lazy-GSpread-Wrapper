@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="Simple-Lazy_GSpread-Wrapper", # Replace with your own username
+    name="slgsw", # Replace with your own username
     version="0.1",
     author="Marganotvke",
     author_email="<current none>",
