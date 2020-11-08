@@ -3,4 +3,5 @@ setup.py
 slgsw.egg-info/PKG-INFO
 slgsw.egg-info/SOURCES.txt
 slgsw.egg-info/dependency_links.txt
+slgsw.egg-info/requires.txt
 slgsw.egg-info/top_level.txt

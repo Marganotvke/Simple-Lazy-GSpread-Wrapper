@@ -15,26 +15,25 @@ Description: # Simple-Lazy-GSpread-Wrapper
         
             pip install gspread oauth2client
         
-        Then, you can just clone it and put it in the same directory as your project.
+        Then, you can install this module by typing:
+            
+            pip install git+https://github.com/Marganotvke/Simple-Lazy-GSpread-Wrapper#egg=slgsw
+        If you have trouble installing this module, or just simply do not want to install it, you can also just clone the module in the 'slgsw' directory and put the module into your project's directory.
         
         #### Importing
         Importing the module is easy, all you need do is just type in the first line:
             
-            from slgsw import *
+            from slgsw import slgsw
         
         or:
         
-            from slgsw import slgsw
+            import slgsw.slgsw
         
         Alternatively, you can do:
         
             import slgsw
         
-        However, by doing so you will need to reference the module to use the initial function by typing "slgsw." in front of the slgsw function, like so:
-            
-            slgsw.slgsw(scope,creds)
-        
-        which as you can see, can be a hassle for some.
+        If you know what you are doing. Not adviced.
         
         ### Functions
         Here is a list of functions that this module provide, in the format of function(argument(s)):
@@ -55,15 +54,15 @@ Description: # Simple-Lazy-GSpread-Wrapper
             Do keep in mind that you will need to set a variable to save what this function returns, to later for the other functions to reference to. eg:
                 
                 sheet = slgsw(scope,creds)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+        
         * sheet.open_sheet(sp,ws)
             <br>To open and start working on a single worksheet or a spreadsheet. The starting 'sheet' is the variable we mentioned in the initial function 'slgsw()' that saves all authenticating results.
             <br><br>sp: The name of the spreadsheet you want to work with. eg:
             
                "Example Spreadsheet"
-                                                                                                                                                                                                                                                                                                                                                                                                                 
             Space is allowed, as there are spreadsheets with space in between characters.
             <br><br>ws: The name of the worksheet you want to work on, in another words, the name of the sheet within the big sheet you want to work on .
+            <br><br>Currently it needs both the sheet and worksheet name to work, even if there's only one worksheet.
             
         *   sheet.update_cell(cell,item)
             <br>To update a cell's value or formula.
@@ -158,7 +157,7 @@ Description: # Simple-Lazy-GSpread-Wrapper
             Do keep in mind that it will only return the FIRST result. If you want to find more cells that fit the same value, you can try the following:
             
         *   sheet.find_cell_list(query)
-            <br>To find the location of a list of cells that contains the value that you want to find. It returns in raw numbering format (<Cell R1C1 'value'>). eg:
+            <br>To find the location of a list of cells that contains the value that you want to find. It currently returns in raw cell format (<Cell R1C1 'value'>). eg:
                 
                 # "Hello!" at A1, A2
                 x = sheet.find_cell_list("Hello!")
@@ -203,6 +202,9 @@ Description: # Simple-Lazy-GSpread-Wrapper
         
         ### Todo
         * Add fontFamily support for update_format
+        * Add numberingFormat support for update_format
+        * Make default of open_sheet to open first worksheet
+        * Fix the formatting in find_cell_list
         
         ### Other Stuff
         This is my first wrapper and also my first public git repository. Kinda excited about this.
