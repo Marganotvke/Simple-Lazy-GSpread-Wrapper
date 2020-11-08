@@ -153,7 +153,7 @@ Here is a list of functions that this module provide, in the format of function(
     Do keep in mind that it will only return the FIRST result. If you want to find more cells that fit the same value, you can try the following:
     
 *   sheet.find_cell_list(query)
-    <br>To find the location of a list of cells that contains the value that you want to find. It returns in raw numbering format (<Cell R1C1 'value'>). eg:
+    <br>To find the location of a list of cells that contains the value that you want to find. It currently returns in raw cell format (<Cell R1C1 'value'>). eg:
         
         # "Hello!" at A1, A2
         x = sheet.find_cell_list("Hello!")
@@ -200,6 +200,7 @@ If you requires more complex functions, please refer to the gspread api docs and
 * Add fontFamily support for update_format
 * Add numberingFormat support for update_format
 * Make default of open_sheet to open first worksheet
+* Fix the formatting in find_cell_list
 
 ### Other Stuff
 This is my first wrapper and also my first public git repository. Kinda excited about this.
