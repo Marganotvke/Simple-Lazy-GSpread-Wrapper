@@ -89,7 +89,7 @@ Here is a list of functions that this module provide, in the format of function(
             data = [[1,2],[3,4]]
             #for "A1:B2",
             #it will write [1,2] into A1:B1
-    2. The second list within the list into the first referenced row. eg:
+    2. The second list within the list into the second referenced row. eg:
             
             data = [[1,2],[3,4]]
             #for "A1:B2",
