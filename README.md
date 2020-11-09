@@ -13,7 +13,7 @@ Then, you can install this module by typing:
 If you have trouble installing this module, or just simply do not want to install it, you can also just clone the module in the 'slgsw' directory and put the module into your project's directory.
 
 #### Importing
-Importing the module is easy, all you need do is just type in the first line:
+Importing the module is easy, all you need to do is just type in the first line:
     
     from slgsw import slgsw
 
@@ -113,7 +113,7 @@ Here is a list of functions that this module provide, in the format of function(
         
         x = sheet.get_cell_value("A1")
         print(x)
-        # will print "Hello!" if you follow through this read me file
+        # will print "Hello!" 
     Do keep in mind that it will return the value, not the formula, therefore if the cell is a formula, it will return the result, not the formula. eg:
     
         # theres a formula "=now()" in A1
