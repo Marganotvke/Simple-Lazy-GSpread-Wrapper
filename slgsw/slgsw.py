@@ -55,7 +55,7 @@ class slgsw:
         item = self.ws.batch_get(rng)
         return item
 
-    def find_cell(self,query): #retrieve one or more cell's position in number format (C,R)
+    def find_cell(self,query): #retrieve one or more cell's position
         cell = self.ws.findall(query)
         for i in range(len(cell)):
             cell[i] = utils.rowcol_to_a1(cell[i].row,cell[i].col)
