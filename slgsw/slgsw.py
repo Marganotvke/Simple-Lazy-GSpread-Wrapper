@@ -51,7 +51,7 @@ class slgsw:
         item = self.ws.acell(str(cell),value_render_option='FORMULA').value
         return item
 
-    def get_range(self,rng):
+    def get_range(self,rng): #retrieve a range of values
         item = self.ws.batch_get(rng)
         return item
 
