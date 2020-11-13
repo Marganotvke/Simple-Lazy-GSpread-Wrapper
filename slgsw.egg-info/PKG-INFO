@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: slgsw
-Version: 0.1
+Version: 0.2
 Summary: A simple wrapper for gspread for people who have limited programming experience, or just simply too lazy to read the gspread docs.
 Home-page: https://github.com/Marganotvke/Simple-Lazy-GSpread-Wrapper
 Author: Marganotvke
@@ -21,7 +21,7 @@ Description: # Simple-Lazy-GSpread-Wrapper
         If you have trouble installing this module, or just simply do not want to install it, you can also just clone the module in the 'slgsw' directory and put the module into your project's directory.
         
         #### Importing
-        Importing the module is easy, all you need do is just type in the first line:
+        Importing the module is easy, all you need to do is just type in the first line:
             
             from slgsw import slgsw
         
@@ -33,19 +33,20 @@ Description: # Simple-Lazy-GSpread-Wrapper
         
             import slgsw
         
-        If you know what you are doing. Not adviced.
+        If you know what you are doing. 
         
         ### Functions
         Here is a list of functions that this module provide, in the format of function(argument(s)):
-        * slgsw(scope,cred)
+        * slgsw(cred,scp)
             <br> This is the initialization function of this module for Authentication.
-            <br> Scope: you will need to fill in the list of 'powers' the service accounts have access to, in the form of a list. eg:
+            <br> scp: you will need to fill in the list of 'powers' the service accounts have access to, in the form of a list. eg:
                 
                 scope = ['https://www.googleapis.com/auth/spreadsheets','https://www.googleapis.com/auth/drive']
         
-            A full list of scopes is available in the gspread api docs, however in most cases, https://www.googleapis.com/auth/spreadsheets(allows for read/write of spreadsheets) and https://www.googleapis.com/auth/drive(allow for access of google drive) is enough.
+            A full list of scopes is available in the gspread api docs, however in most cases, https://www.googleapis.com/auth/spreadsheets (allows for read/write of spreadsheets) and https://www.googleapis.com/auth/drive (allow for access of google drive) is enough.
+            <br>Defaults to read only access.
             <br><br>credentials: you will need to fill the the name (or the path) of the credentials file you downloaded from google's api control panel. Full instructions can be found here:https://gspread.readthedocs.io/en/latest/oauth2.html#enable-api-access-for-a-project
-            <br>The format is in a string (double quotes, ""), and the file's format MUST be in json, eg:
+            <br>The format is in a string (double or single quotes, "" | ''), and the file's format MUST be in json, eg:
                 
                 'credentials.json'
             
@@ -62,7 +63,7 @@ Description: # Simple-Lazy-GSpread-Wrapper
                "Example Spreadsheet"
             Space is allowed, as there are spreadsheets with space in between characters.
             <br><br>ws: The name of the worksheet you want to work on, in another words, the name of the sheet within the big sheet you want to work on .
-            <br><br>Currently it needs both the sheet and worksheet name to work, even if there's only one worksheet.
+            <br><br>Defaults to the first worksheet. Currently it needs both the sheet and worksheet name to work, even if there's only one worksheet.
             
         *   sheet.update_cell(cell,item)
             <br>To update a cell's value or formula.
@@ -97,7 +98,7 @@ Description: # Simple-Lazy-GSpread-Wrapper
                     data = [[1,2],[3,4]]
                     #for "A1:B2",
                     #it will write [1,2] into A1:B1
-            2. The second list within the list into the first referenced row. eg:
+            2. The second list within the list into the second referenced row. eg:
                     
                     data = [[1,2],[3,4]]
                     #for "A1:B2",
@@ -121,7 +122,7 @@ Description: # Simple-Lazy-GSpread-Wrapper
                 
                 x = sheet.get_cell_value("A1")
                 print(x)
-                # will print "Hello!" if you follow through this read me file
+                # will print "Hello!" 
             Do keep in mind that it will return the value, not the formula, therefore if the cell is a formula, it will return the result, not the formula. eg:
             
                 # theres a formula "=now()" in A1
@@ -149,27 +150,19 @@ Description: # Simple-Lazy-GSpread-Wrapper
             Do keep in mind that it will return in a multi-list form, in another words, the 'lists within a list' form.
             
         *   sheet.find_cell(query)
-            <br>To find the location of a cell that contains the value that you want to find. It returns in numbering format (C1R1). eg:
+            <br>To find the location of one or more cells that contain the value that you want to find. It returns a list in cell referencing format (A1 notation). eg:
                 
                 x = sheet.find_cell("Hello!")
                 print(x)
-                #will print "C1,R1"
-            Do keep in mind that it will only return the FIRST result. If you want to find more cells that fit the same value, you can try the following:
-            
-        *   sheet.find_cell_list(query)
-            <br>To find the location of a list of cells that contains the value that you want to find. It currently returns in raw cell format (<Cell R1C1 'value'>). eg:
-                
-                # "Hello!" at A1, A2
-                x = sheet.find_cell_list("Hello!")
-                print(x)
-                #will print [<Cell R1C1 'Hello!'>, <Cell R2C1 'Hello!'>]
+                #will print "A1"
+        
             
         ### Usage and examples
         The following is an example that I put up. You can also find the example file in the repository:
             
             # You can modify this code to suit your needs
             
-            from slgsw import * #import the module
+            from slgsw import slgsw #import the module
             # if you choose to use 'import' only, then you will need to add 'slgsw.' in front of every single functions
             # for example, to initialize the function you will need to use 'slgsw.slgsw(blah,blah)' instead of just 'slgsw(blah,blah)'
             
@@ -201,14 +194,11 @@ Description: # Simple-Lazy-GSpread-Wrapper
         <br> https://gspread.readthedocs.io/en/latest/index.html
         
         ### Todo
-        * Add fontFamily support for update_format
-        * Add numberingFormat support for update_format
-        * Make default of open_sheet to open first worksheet
-        * Fix the formatting in find_cell_list
+        * There's none, yay!
         
         ### Other Stuff
         This is my first wrapper and also my first public git repository. Kinda excited about this.
-        <br> Was kinda frustrated to use the gspread api, therefore wrote this wrapper to make it just a tiny bit user-friendly.
+        <br> Was kinda frustrated to use the gspread api, therefore wrote this wrapper to make it just a tiny bit user-friendly. Does not mean it's a bad api though, it's just a bit too complex for my little brain.
         <br> Writing the read me takes more time than to actually write and debug the actual code lol.
         <br> Feel free to pull request or whatever! I will check them if I have the time.
         >gspread is copyrighted by Anton Burnashev.

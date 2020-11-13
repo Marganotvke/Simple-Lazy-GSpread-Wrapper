@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="slgsw", # Replace with your own username
-    version="0.1",
+    version="0.2",
     author="Marganotvke",
     author_email="<current none>",
     description="A simple wrapper for gspread for people who have limited programming experience, or just simply too lazy to read the gspread docs.",
