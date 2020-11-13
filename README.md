@@ -98,16 +98,23 @@ Here is a list of functions that this module provide, in the format of function(
             
     So on and so forth.
    
-*   sheet.update_format(cell,txt,size)
+*   sheet.update_format(cell,txt,size,fontFamily,numFormat,numPattern)
     <br> To change the format of a (range of) cell. This currently only supports text formatting and font size, if you want some other advance formatting, please refer to the gspread api docs instead. (https://gspread.readthedocs.io/en/latest/user-guide.html#formatting , https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/cells#cellformat)
     <br><br>rng: The range of cells you want to change the format of. Can be a single cell ("A1") or a range ("A1:B2").
     <br><br>txt: The format of the texts. Currently supports:
         
         bold,italic,strikethrough,underline
     <br>size: The size of texts. Takes a number only, eg: 12
-    <br><br>If you want to just use one of the parameters, you can just use either 'txt=something' or 'size=something'. eg:
+    <br><br>The next few will be a bit complicated.
+    <br><br>fontFamily: The font family of texts. Takes string. Strictly the ones that google spreadsheet support.
+    <br><br>numFormat: The number format. Supports a few types:
         
-        sheet.update_format('A1',size=15)
+        TEXT,NUMBER,PERCENT,CURRENCY,DATE,TIME,DATE_TIME,SCIENTIFIC
+    Full details in https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/cells#numberformattype .
+    <br><br>numPattern: The number/date format pattern of the numbers. Full details at https://developers.google.com/sheets/api/guides/formats .
+    <br><br>If you want to just use one of the parameters, you can just omit some of them, just remember to specify the arguments before your values. eg:
+        
+        sheet.update_format('A1',size = 15,numFormat = 'text')
 
 *   sheet.get_cell_value(cell)
     <br> To retrieve a cell's value. Takes cell referencing (A1 notaiton), eg:
