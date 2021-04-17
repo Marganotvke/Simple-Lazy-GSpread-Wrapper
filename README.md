@@ -7,10 +7,11 @@ First, install the dependencies of the module (which are gspread and oauth2clien
 
     pip install gspread oauth2client
 
-Then, you can install this module by typing:
+It is recommended to just clone the module in the folder. However, if you want to install it as a package instead,
+you can install this module by typing:
     
     pip install git+https://github.com/Marganotvke/Simple-Lazy-GSpread-Wrapper#egg=slgsw
-If you have trouble installing this module, or just simply do not want to install it, you can also just clone the module in the 'slgsw' directory and put the module into your project's directory.
+If you have trouble installing this module, or just simply do not want to install it, you can also just clone the dist and install it yourself, or clone the module in the 'slgsw' directory and put the module into your project's directory.
 
 #### Importing
 Importing the module is easy, all you need to do is just type in the first line:
@@ -24,8 +25,6 @@ or:
 Alternatively, you can do:
 
     import slgsw
-
-If you know what you are doing. 
 
 ### Functions
 Here is a list of functions that this module provide, in the format of function(argument(s)):
